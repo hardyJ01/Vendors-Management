@@ -32,4 +32,6 @@ aiSuggestionCacheSchema.index({ expires_at: 1 }, { expireAfterSeconds: 0 });
 // One cache entry per user (latest wins)
 aiSuggestionCacheSchema.index({ user_id: 1 });
 
-module.exports = mongoose.model('AiSuggestionCache', aiSuggestionCacheSchema);
+const AiSuggestionCache= mongoose.model('AiSuggestionCache', aiSuggestionCacheSchema);
+
+export default AiSuggestionCache;

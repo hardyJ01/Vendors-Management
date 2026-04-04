@@ -30,4 +30,5 @@ const otpTokenSchema = new mongoose.Schema(
 // Auto-delete expired OTP documents from MongoDB
 otpTokenSchema.index({ expires_at: 1 }, { expireAfterSeconds: 0 });
 
-module.exports = mongoose.model('OtpToken', otpTokenSchema);
+const OtpToken= mongoose.model('OtpToken', otpTokenSchema);
+export default OtpToken;

@@ -22,4 +22,5 @@ const splitGroupSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('SplitGroup', splitGroupSchema);
+const SplitGroup= mongoose.model('SplitGroup', splitGroupSchema);
+export default SplitGroup;
