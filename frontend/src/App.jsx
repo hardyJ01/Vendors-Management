@@ -1,16 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { useAuth } from './context/Auth';
+import AuthPage from './pages/Auth';
+import DashboardPage from './pages/Dashboard';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { authToken } = useAuth();
 
   return (
-    <>
-    </>
-  )
+    <Routes>
+      <Route path="/" element={authToken ? <Navigate to="/dashboard" replace /> : <AuthPage />} />
+      <Route
+        path="/dashboard"
+        element={authToken ? <DashboardPage /> : <Navigate to="/" replace />}
+      />
+    </Routes>
+  );
 }
 
-export default App
+export default App;

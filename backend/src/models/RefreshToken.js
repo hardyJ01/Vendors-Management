@@ -1,32 +1,16 @@
 const mongoose = require('mongoose');
+const { v4: uuidv4 } = require('uuid');
+const schemaOptions = require('../utils/SchemaOptions');
 
 const refreshTokenSchema = new mongoose.Schema(
   {
-    user_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
-    },
-    token_hash: {
-      type: String,
-      required: true, // Hashed refresh token value
-    },
-    expires_at: {
-      type: Date,
-      required: true,
-    },
-    revoked: {
-      type: Boolean,
-      default: false, // true if the token has been invalidated
-    },
+    _id: { type: String, default: uuidv4 },
+    user_id: { type: String, ref: 'User', required: true },
+    token_hash: { type: String, required: true },
+    expires_at: { type: Date, required: true },
+    revoked: { type: Boolean, default: false },
   },
-  {
-    timestamps: true,
-  }
+  schemaOptions
 );
 
-// Auto-delete expired refresh token documents from MongoDB
-refreshTokenSchema.index({ expires_at: 1 }, { expireAfterSeconds: 0 });
-
-const RefreshToken= mongoose.model('RefreshToken', refreshTokenSchema);
-export default RefreshToken;
+module.exports = mongoose.model('RefreshToken', refreshTokenSchema, 'refresh_tokens');

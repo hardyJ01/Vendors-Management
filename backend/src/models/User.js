@@ -1,7 +1,14 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+const { v4: uuidv4 } = require('uuid');
+const schemaOptions = require('../utils/SchemaOptions');
 
 const userSchema = new mongoose.Schema(
   {
+    _id: {
+      type: String,
+      default: uuidv4,
+    },
     name: {
       type: String,
       required: true,
@@ -17,61 +24,83 @@ const userSchema = new mongoose.Schema(
     phone_number: {
       type: String,
       trim: true,
+      default: '',
     },
     address: {
       type: String,
       trim: true,
+      default: '',
     },
     password: {
       type: String,
-      default: null, // null for Google OAuth-only users
+      default: null,
     },
     google_id: {
       type: String,
       default: null,
-      sparse: true, // allows multiple nulls in unique index
-      unique: true,
+      index: true,
     },
-    vendors: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-      },
-    ],
+    vendors: {
+      type: [String],
+      ref: 'User',
+      default: [],
+    },
     business: {
       type: String,
       trim: true,
+      default: '',
     },
     profile_pic: {
-      type: String, // URL
+      type: String,
+      default: '',
     },
     balance: {
       type: Number,
       default: 0,
-      // IMPORTANT: Never update directly. Use atomic DB transactions only.
+      min: 0,
     },
     rating: {
       type: Number,
       default: 0,
+      min: 0,
     },
     no_rating: {
       type: Number,
       default: 0,
+      min: 0,
     },
     budget_overall: {
       type: Number,
-      default: null, // Optional monthly spending budget limit
+      default: null,
+      min: 0,
     },
     budget_per_vendor: {
       type: Map,
       of: Number,
-      default: {}, // Map of vendor ObjectId (as string) → monthly spending limit
+      default: {},
     },
   },
   {
+    ...schemaOptions,
     timestamps: true,
   }
 );
 
-const User= mongoose.model('User', userSchema);
-export default User;
+userSchema.pre('save', async function userPreSave(next) {
+  if (!this.isModified('password') || !this.password) {
+    return next();
+  }
+
+  this.password = await bcrypt.hash(this.password, 12);
+  return next();
+});
+
+userSchema.methods.comparePassword = function comparePassword(candidatePassword) {
+  if (!this.password) {
+    return false;
+  }
+
+  return bcrypt.compare(candidatePassword, this.password);
+};
+
+module.exports = mongoose.model('User', userSchema, 'users');

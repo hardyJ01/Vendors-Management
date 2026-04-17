@@ -1,17 +1,20 @@
-import express from 'express';
-import connectDB from './config/Db.js';
+const dotenv = require('dotenv');
 
-const app=express();
+dotenv.config();
 
-connectDB();
+const app = require('./App');
+const connectDatabase = require('./config/Database');
 
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
+const port = process.env.PORT || 5000;
 
-app.get('/',(req,res)=>{
-    res.json({message:'VendorFlow API running'})
-})
+const startServer = async () => {
+  await connectDatabase();
+  app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
+};
 
-
-const PORT=5000
-app.listen(PORT,()=>{console.log(`Server started on ${PORT}`)})
+startServer().catch((error) => {
+  console.error('Failed to start server:', error);
+  process.exit(1);
+});

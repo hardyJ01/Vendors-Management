@@ -1,37 +1,16 @@
 const mongoose = require('mongoose');
+const { v4: uuidv4 } = require('uuid');
+const schemaOptions = require('../utils/SchemaOptions');
 
 const aiSuggestionCacheSchema = new mongoose.Schema(
   {
-    user_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
-    },
-    suggestions: {
-      type: mongoose.Schema.Types.Mixed, // JSON array of ranked bill suggestions
-      required: true,
-    },
-    generated_at: {
-      type: Date,
-      default: Date.now,
-    },
-    expires_at: {
-      type: Date,
-      required: true,
-      default: () => new Date(Date.now() + 45 * 60 * 1000), // 45 minutes (within 30–60 min window)
-    },
+    _id: { type: String, default: uuidv4 },
+    user_id: { type: String, ref: 'User', required: true, unique: true },
+    suggestions: { type: Array, default: [] },
+    generated_at: { type: Date, default: Date.now },
+    expires_at: { type: Date, required: true },
   },
-  {
-    timestamps: true,
-  }
+  schemaOptions
 );
 
-// Auto-delete expired cache entries from MongoDB
-aiSuggestionCacheSchema.index({ expires_at: 1 }, { expireAfterSeconds: 0 });
-
-// One cache entry per user (latest wins)
-aiSuggestionCacheSchema.index({ user_id: 1 });
-
-const AiSuggestionCache= mongoose.model('AiSuggestionCache', aiSuggestionCacheSchema);
-
-export default AiSuggestionCache;
+module.exports = mongoose.model('AiSuggestionCache', aiSuggestionCacheSchema, 'ai_suggestion_cache');

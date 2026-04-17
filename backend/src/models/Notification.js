@@ -1,33 +1,18 @@
 const mongoose = require('mongoose');
+const { v4: uuidv4 } = require('uuid');
+const schemaOptions = require('../utils/SchemaOptions');
 
 const notificationSchema = new mongoose.Schema(
   {
-    user_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
-    },
-    vendor_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
-    },
-    message: {
-      type: String,
-      required: true,
-    },
-    link: {
-      type: String, // Deep link opened when notification is clicked
-    },
-    read: {
-      type: Boolean,
-      default: false,
-    },
+    _id: { type: String, default: uuidv4 },
+    user_id: { type: String, ref: 'User', required: true },
+    vendor_id: { type: String, ref: 'User', default: null },
+    message: { type: String, required: true, trim: true },
+    link: { type: String, default: '' },
+    created_at: { type: Date, default: Date.now },
+    read: { type: Boolean, default: false },
   },
-  {
-    timestamps: true, // provides createdAt
-  }
+  schemaOptions
 );
 
-const Notification= mongoose.model('Notification', notificationSchema);
-export default Notification;
+module.exports = mongoose.model('Notification', notificationSchema, 'notifications');

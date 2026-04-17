@@ -1,18 +1,9 @@
 class ApiError extends Error {
-    constructor(statusCode, message = "Something wenet wrong", errors=[],stack=""){
-        super(messsage);
-        this.statusCode = statusCode;
-        this.data= null;
-        this.message = message;
-        this.success = false;
-        this.errors = errors;
-        if(stack){
-            this.stack = stack;
-        }
-        else{
-            Error.captureStackTrace(this,this.constructor);
-        }
-
-    }
+  constructor(statusCode, message, details = null) {
+    super(message);
+    this.statusCode = statusCode;
+    this.details = details;
+  }
 }
-export {ApiError};
+
+module.exports = ApiError;

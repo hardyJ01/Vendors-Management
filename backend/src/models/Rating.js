@@ -1,31 +1,20 @@
 const mongoose = require('mongoose');
+const { v4: uuidv4 } = require('uuid');
+const schemaOptions = require('../utils/SchemaOptions');
 
 const ratingSchema = new mongoose.Schema(
   {
-    user_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
-    },
-    vendor_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
-    },
-    rating: {
-      type: Number,
-      required: true,
-      min: 1,
-      max: 5,
-    },
+    _id: { type: String, default: uuidv4 },
+    user_id: { type: String, ref: 'User', required: true },
+    vendor_id: { type: String, ref: 'User', required: true },
+    rating: { type: Number, required: true, min: 1, max: 5 },
   },
   {
+    ...schemaOptions,
     timestamps: true,
   }
 );
 
-// Enforce one rating per user per vendor (use upsert on this pair)
 ratingSchema.index({ user_id: 1, vendor_id: 1 }, { unique: true });
 
-const Rating= mongoose.model('Rating', ratingSchema);
-export default Rating;
+module.exports = mongoose.model('Rating', ratingSchema, 'ratings');
