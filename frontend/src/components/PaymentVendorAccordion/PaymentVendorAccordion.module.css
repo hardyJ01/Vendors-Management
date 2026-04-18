@@ -1,0 +1,135 @@
+.card {
+    border-radius: 18px;
+    border: 1px solid var(--panel-border);
+    background: var(--panel-bg);
+    overflow: hidden;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 16px 18px;
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+.identity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+}
+
+.iconWrap {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: var(--accent-dim);
+    color: var(--accent);
+}
+
+.vendor {
+    margin: 0;
+    font-size: 0.98rem;
+}
+
+.meta {
+    margin: 4px 0 0;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+}
+
+.summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.total {
+    font-family: var(--font-display);
+}
+
+.chevron {
+    transition: transform 0.2s ease;
+}
+
+.chevronOpen {
+    transform: rotate(180deg);
+}
+
+.body {
+    border-top: 1px solid var(--panel-border);
+    padding: 10px 14px 14px;
+    display: grid;
+    gap: 10px;
+}
+
+.billRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: var(--panel-bg-soft);
+}
+
+.billInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.billCategory,
+.billDate {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-soft);
+    font-size: 0.8rem;
+}
+
+.billAction {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.billAmount {
+    font-family: var(--font-display);
+}
+
+.payButton {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 14px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+@media (max-width: 640px) {
+    .billRow,
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .billAction,
+    .summary {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .payButton {
+        flex: 1;
+    }
+}

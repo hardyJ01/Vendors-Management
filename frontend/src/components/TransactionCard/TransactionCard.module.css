@@ -1,0 +1,78 @@
+.card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 16px;
+    background: var(--panel-bg-soft);
+    border: 1px solid var(--panel-border);
+}
+
+.iconWrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.incoming {
+    background: var(--positive-soft);
+    color: var(--positive);
+}
+
+.outgoing {
+    background: var(--danger-soft);
+    color: var(--danger);
+}
+
+.info {
+    flex: 1;
+}
+
+.name {
+    margin: 0;
+    font-size: 0.92rem;
+}
+
+.note {
+    margin: 4px 0 0;
+    color: var(--text-soft);
+    font-size: 0.78rem;
+}
+
+.meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.amount {
+    font-family: var(--font-display);
+}
+
+.amountIn {
+    color: var(--positive);
+}
+
+.amountOut {
+    color: var(--danger);
+}
+
+.date {
+    color: var(--text-soft);
+    font-size: 0.72rem;
+}
+
+@media (max-width: 640px) {
+    .card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .meta {
+        align-items: flex-start;
+    }
+}

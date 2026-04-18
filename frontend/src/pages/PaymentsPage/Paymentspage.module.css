@@ -1,0 +1,301 @@
+.page {
+    min-height: 100vh;
+    background: var(--page-gradient);
+}
+
+.shell {
+    width: 100%;
+    margin: 0;
+    padding: 72px 24px 48px;
+    display: grid;
+    gap: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.title {
+    margin: 0;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+}
+
+.subtitle {
+    margin: 12px 0 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.topButton,
+.primaryButton,
+.secondaryButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.topButton,
+.primaryButton {
+    border: none;
+    padding: 14px 18px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: white;
+}
+
+.statsRow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.statCard,
+.sectionCard {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 18px;
+    box-shadow: var(--shadow-strong);
+}
+
+.statCard {
+    padding: 18px;
+}
+
+.statLabel {
+    display: block;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.74rem;
+    font-weight: 700;
+}
+
+.statValue {
+    display: block;
+    margin-top: 8px;
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: -0.03em;
+}
+
+.sectionCard {
+    padding: 18px;
+}
+
+.sectionHeader {
+    margin-bottom: 16px;
+}
+
+.sectionIntro {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sectionIcon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: var(--accent-dim);
+    color: var(--accent);
+}
+
+.sectionTitle {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+}
+
+.sectionText {
+    margin: 4px 0 0;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+
+.vendorList,
+.historyList {
+    display: grid;
+    gap: 12px;
+}
+
+.vendorFilterRow {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.vendorLabel {
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.vendorSelect {
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid var(--panel-border);
+    background: var(--surface-2);
+    color: var(--text-primary);
+    padding: 13px 14px;
+    outline: none;
+}
+
+.vendorBillCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 16px;
+    background: var(--panel-bg-soft);
+    border: 1px solid var(--panel-border);
+}
+
+.vendorBillTitle {
+    margin: 0;
+    font-size: 0.96rem;
+}
+
+.vendorBillMeta {
+    margin: 4px 0 0;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.vendorBillAction {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.vendorBillAmount {
+    font-family: var(--font-display);
+    font-size: 1rem;
+}
+
+.payInlineButton {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 14px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.historyGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.historyColumn {
+    display: grid;
+    gap: 12px;
+}
+
+.historyHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.historyTitle {
+    margin: 0;
+    font-size: 0.96rem;
+    color: var(--text-primary);
+}
+
+.historyCount {
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: var(--panel-bg-strong);
+    border: 1px solid var(--panel-border);
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.emptyState {
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    color: var(--text-secondary);
+    background: var(--panel-bg-soft);
+}
+
+.confirmModal {
+    text-align: center;
+}
+
+.confirmAmount {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.confirmText {
+    margin: 0 0 18px;
+    color: var(--text-secondary);
+}
+
+.confirmActions {
+    display: flex;
+    gap: 10px;
+}
+
+.secondaryButton {
+    flex: 1;
+    padding: 12px 14px;
+    border: 1px solid var(--panel-border);
+    background: var(--panel-bg-strong);
+    color: var(--text-primary);
+}
+
+.primaryButton {
+    flex: 1;
+    padding: 12px 14px;
+}
+
+@media (max-width: 820px) {
+    .header,
+    .statsRow,
+    .historyGrid {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    .topButton {
+        width: 100%;
+    }
+
+    .shell {
+        padding: 72px 12px 40px;
+    }
+
+    .vendorBillCard {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .vendorBillAction {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

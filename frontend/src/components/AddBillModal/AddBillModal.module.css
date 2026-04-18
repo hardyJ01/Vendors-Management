@@ -1,0 +1,99 @@
+.form {
+    display: grid;
+    gap: 16px;
+}
+
+.field {
+    display: grid;
+    gap: 8px;
+}
+
+.label {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.input,
+.select {
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid var(--panel-border);
+    background: var(--surface-2);
+    color: var(--text-primary);
+    padding: 13px 14px;
+    outline: none;
+}
+
+.toggleRow {
+    display: grid;
+    gap: 12px;
+}
+
+.toggleCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: 1px solid var(--panel-border);
+    background: var(--panel-bg-soft);
+}
+
+.toggleTitle {
+    display: block;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.toggleText {
+    margin: 4px 0 0;
+    color: var(--text-soft);
+    font-size: 0.82rem;
+}
+
+.error {
+    margin: 0;
+    color: #ff8b8b;
+    font-size: 0.8rem;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+    position: sticky;
+    bottom: -24px;
+    padding-top: 12px;
+    background: linear-gradient(180deg, transparent, var(--surface) 28%);
+}
+
+.primaryButton,
+.secondaryButton {
+    flex: 1;
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.primaryButton {
+    border: none;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: white;
+}
+
+.secondaryButton {
+    border: 1px solid var(--panel-border);
+    background: var(--surface-2);
+    color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+    .actions {
+        flex-direction: column;
+    }
+}

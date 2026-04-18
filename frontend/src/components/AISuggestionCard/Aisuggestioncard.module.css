@@ -1,0 +1,128 @@
+.card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.glowBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    opacity: 0.8;
+}
+
+.inner {
+    padding: 18px 20px 16px;
+}
+
+.topRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.aiChip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    color: #a78bfa;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+}
+
+.aiDot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #a78bfa;
+    animation: pulse 1.8s infinite;
+}
+
+.confidence {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.vendorName {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 6px;
+}
+
+.reason {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0 0 14px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.amount {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.chip {
+    background: rgba(139, 92, 246, 0.1);
+    color: #a78bfa;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.useBtn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+
+.useBtn:hover { opacity: 0.85; }
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.8); }
+}

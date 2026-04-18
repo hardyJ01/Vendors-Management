@@ -1,0 +1,26 @@
+import { useEffect } from "react";
+import styles from "./Modal.module.css";
+
+const Modal = ({ isOpen, onClose, title, children }) => {
+    useEffect(() => {
+        const handler = (e) => e.key === "Escape" && onClose();
+        if (isOpen) document.addEventListener("keydown", handler);
+        return () => document.removeEventListener("keydown", handler);
+    }, [isOpen, onClose]);
+
+    if (!isOpen) return null;
+
+    return (
+        <div className={styles.overlay} onClick={onClose}>
+            <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+                <div className={styles.header}>
+                    <h2 className={styles.title}>{title}</h2>
+                    <button className={styles.closeBtn} onClick={onClose}>✕</button>
+                </div>
+                <div className={styles.body}>{children}</div>
+            </div>
+        </div>
+    );
+};
+
+export default Modal;

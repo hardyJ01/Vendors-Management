@@ -1,0 +1,271 @@
+.page {
+    min-height: 100vh;
+    width: 100%;
+    background: var(--page-gradient);
+}
+
+.shell {
+    width: 100%;
+    margin: 0;
+    padding: 72px 24px 48px;
+    display: grid;
+    gap: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.title {
+    margin: 0;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: clamp(2.3rem, 5vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+}
+
+.subtitle {
+    margin: 12px 0 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.addButton,
+.inlineAddButton,
+.modalPrimaryButton,
+.modalSecondaryButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.addButton {
+    border: none;
+    padding: 14px 18px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: white;
+}
+
+.statsRow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.statCard {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: var(--shadow-strong);
+}
+
+.statLabel {
+    display: block;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.74rem;
+    font-weight: 700;
+}
+
+.statValue {
+    display: block;
+    margin-top: 8px;
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: -0.03em;
+}
+
+.positiveValue {
+    color: var(--positive);
+}
+
+.statSub {
+    margin-top: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    font-size: 0.76rem;
+}
+
+.billsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.billColumn,
+.aiSection {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow-strong);
+}
+
+.columnHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 16px 18px 14px;
+    border-bottom: 1px solid var(--panel-border);
+}
+
+.columnTitleWrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.columnDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.payDot {
+    background: #ff6c6c;
+}
+
+.owedDot {
+    background: #51d890;
+}
+
+.columnTitle {
+    margin: 0;
+    font-size: 0.98rem;
+    color: var(--text-primary);
+}
+
+.columnCount {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--panel-bg-strong);
+    color: var(--text-secondary);
+    border: 1px solid var(--panel-border);
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.inlineAddButton {
+    border: 1px solid var(--panel-border);
+    padding: 8px 12px;
+    background: var(--accent-dim);
+    color: var(--text-primary);
+}
+
+.columnBody {
+    padding: 12px;
+    display: grid;
+    gap: 10px;
+}
+
+.emptyState {
+    padding: 28px 16px;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.aiSection {
+    padding: 0;
+}
+
+.aiHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px 14px;
+    border-bottom: 1px solid var(--panel-border);
+}
+
+.aiIcon {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: var(--accent-dim);
+    color: var(--accent);
+}
+
+.aiTitle {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.aiSubtitle {
+    margin: 4px 0 0;
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+}
+
+.confirmModal {
+    text-align: center;
+}
+
+.confirmAmount {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.confirmText {
+    margin: 0 0 18px;
+    color: var(--text-secondary);
+}
+
+.confirmActions {
+    display: flex;
+    gap: 10px;
+}
+
+.modalPrimaryButton,
+.modalSecondaryButton {
+    flex: 1;
+    justify-content: center;
+    padding: 12px 14px;
+}
+
+.modalPrimaryButton {
+    border: none;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: white;
+}
+
+.modalSecondaryButton {
+    border: 1px solid var(--panel-border);
+    background: var(--panel-bg-strong);
+    color: var(--text-primary);
+}
+
+@media (max-width: 800px) {
+    .statsRow,
+    .billsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .addButton {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .shell {
+        padding: 72px 12px 40px;
+    }
+}

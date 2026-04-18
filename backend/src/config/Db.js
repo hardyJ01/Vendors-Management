@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const connectDB= async()=>{
     try{
-        const conn= await mongoose.connect('');
+        const conn= await mongoose.connect('mongodb://localhost:27017/vendors-management');
         console.log(`MongoDB connected: ${conn.connection.host}`)
     }
     catch(err){

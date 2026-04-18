@@ -1,6 +1,6 @@
 class ApiError extends Error {
     constructor(statusCode, message = "Something wenet wrong", errors=[],stack=""){
-        super(messsage);
+        super(message);
         this.statusCode = statusCode;
         this.data= null;
         this.message = message;

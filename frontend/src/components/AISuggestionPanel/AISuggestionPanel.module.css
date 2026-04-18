@@ -1,0 +1,105 @@
+.panel {
+    border-radius: 28px;
+    padding: 22px;
+    border: 1px solid var(--panel-border);
+    background:
+        radial-gradient(circle at top right, var(--accent-dim), transparent 34%),
+        var(--panel-bg);
+    box-shadow: var(--shadow-strong);
+}
+
+.headerBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 999px;
+    padding: 7px 12px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.title {
+    margin: 14px 0 0;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1.3;
+}
+
+.list {
+    margin-top: 18px;
+    display: grid;
+    gap: 12px;
+}
+
+.card {
+    border-radius: 20px;
+    border: 1px solid var(--panel-border);
+    background: var(--panel-bg-soft);
+    padding: 16px;
+}
+
+.featured {
+    border-color: var(--panel-border);
+    box-shadow: inset 0 0 0 1px var(--danger-soft);
+}
+
+.cardTop {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.vendor {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.reason {
+    margin: 6px 0 0;
+    font-size: 0.82rem;
+    color: var(--text-soft);
+}
+
+.priority {
+    flex-shrink: 0;
+    height: fit-content;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.high {
+    background: var(--danger-soft);
+    color: var(--danger);
+}
+
+.medium {
+    background: var(--warning-soft);
+    color: var(--warning);
+}
+
+.low {
+    background: var(--positive-soft);
+    color: var(--positive);
+}
+
+.amount {
+    display: block;
+    margin-top: 14px;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+}
+
+.empty {
+    border-radius: 18px;
+    padding: 22px 16px;
+    text-align: center;
+    color: var(--text-soft);
+    background: var(--panel-bg-soft);
+}

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const splitGroupSchema = new mongoose.Schema(
   {
@@ -23,4 +23,4 @@ const splitGroupSchema = new mongoose.Schema(
 );
 
 const SplitGroup= mongoose.model('SplitGroup', splitGroupSchema);
-export default SplitGroup;
+export  {SplitGroup};

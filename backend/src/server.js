@@ -1,17 +1,10 @@
-import express from 'express';
-import connectDB from './config/Db.js';
-
-const app=express();
+import { app } from "./app.js";
+import connectDB from "./config/Db.js";
 
 connectDB();
 
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
+const PORT = 5000;
 
-app.get('/',(req,res)=>{
-    res.json({message:'VendorFlow API running'})
-})
-
-
-const PORT=5000
-app.listen(PORT,()=>{console.log(`Server started on ${PORT}`)})
+app.listen(PORT, () => {
+    console.log(`Server started on ${PORT}`);
+});
