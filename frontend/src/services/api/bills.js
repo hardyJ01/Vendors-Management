@@ -3,7 +3,7 @@ export function get_bills(status, page, limit){
         [
             {
                 bill_id : "1",
-                amount : "2000",
+                amount : 2000,
                 vendor_name : "safik",
                 vendor_id : "1",
                 status : "paid",
@@ -13,10 +13,37 @@ export function get_bills(status, page, limit){
             },
             {
                 bill_id : "1",
-                amount : "2000",
+                amount : 2000,
+                vendor_name : "safik",
+                vendor_id : "1",
+                status : "pending",
+                created_at : "12341453",
+                is_recurring : false,
+                is_split : false
+            }
+        ]
+    );
+}
+
+export function get_owed_bills(status, page, limit){
+    return(
+        [
+            {
+                bill_id : "1",
+                amount : 2000,
                 vendor_name : "safik",
                 vendor_id : "1",
                 status : "paid",
+                created_at : "12341453",
+                is_recurring : false,
+                is_split : false
+            },
+            {
+                bill_id : "1",
+                amount : 2000,
+                vendor_name : "safik",
+                vendor_id : "1",
+                status : "pending",
                 created_at : "12341453",
                 is_recurring : false,
                 is_split : false

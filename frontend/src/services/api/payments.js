@@ -5,14 +5,14 @@ export function get_payments(page, limit){
                 payment_id : 1,
                 vendor_name : "safik",
                 amount : 2000,
-                date : "12-3-2026",
+                date : new Date(),
                 bill_id : "1"
             },
             {
                 payment_id : 1,
                 vendor_name : "safik",
                 amount : 2000,
-                date : "12-3-2026",
+                date : new Date(),
                 bill_id : "1"
             }
         ]
